@@ -1,0 +1,27 @@
+var readlineSync = require('readline-sync');
+console.log('Hola, Get ready for Naruto anime Quiz..!')
+var username = readlineSync.question('enter your name to begin Quiz\n');
+var points = 0;
+console.log('Welcome ' + username+'..!');
+function play(question, answer) {
+  var userAnswer = readlineSync.question(question);
+  if (userAnswer.toUpperCase() === answer.toUpperCase()) {
+    console.log('Correct Answer');
+    points = points + 5;
+  }
+  else {
+    console.log('Wrong Answer');
+  }
+  console.log('your score is ' + points);
+}
+
+var arrayOfQuestions = [{ question: '1.Father of Naruto?\nAns: ', answer: 'Minato' },
+{ question: '2.Fav food of Naruto?\nAns: ', answer: 'Ramen' },
+{ question: '3.Who is Pervy Sage?\nAns: ', answer: 'Jiraya' },
+{ question: '4.Who created the Rasengan?\nAns: ', answer: 'Minato' }];
+
+for (var i = 0; i < arrayOfQuestions.length; i++) {
+  var temp = arrayOfQuestions[i];
+  play(temp.question, temp.answer);
+}
+console.log(username, 'your final score is ', points);
